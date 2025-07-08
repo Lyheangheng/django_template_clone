@@ -18,14 +18,14 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-              <h2 class="mb-0" style="letter-spacing:0.1em; color:#ff2e63; text-shadow:0 0 10px #ff2e63,0 0 40px #232526;">จังโกโก้</h2>
+              <h2 class="mb-0" style="letter-spacing:0.1em; color: white; text-shadow:0 0 10pxrgb(255, 255, 255),0 0 40px #232526;">Tun</h2>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                <div class="input-group search-clean-group">
+                    <input class="form-control search-clean-input" type="text" placeholder="Search" aria-label="Search" aria-describedby="btnNavbarSearch" />
+                    <button class="btn search-clean-btn" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
             <!-- Navbar-->
@@ -49,22 +49,22 @@
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="{% url 'home' %}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                หน้าแรก
+                                Home
                             </a>
                              <a class="nav-link" href="{% url 'about' %}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                เกี่ยวกับเรา
+                                About
                             </a>
                              <a class="nav-link" href="{% url 'contact' %}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                ติดต่อเรา
+                                Contact
                             </a>
                           
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        จังโกโก้
+                        Lyheang Heng
                     </div>
                 </nav>
             </div>
@@ -82,7 +82,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div class="text-muted">Copyright &copy; Tun </div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -100,5 +100,53 @@
         <script src="{% static "assets/demo/chart-bar-demo.js" %}"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <style>
+.search-clean-group {
+    box-shadow: 0 2px 12px #23252622;
+    border-radius: 2rem;
+    overflow: hidden;
+    background: rgba(30,30,30,0.85);
+}
+.search-clean-input {
+    border: none;
+    border-radius: 2rem 0 0 2rem;
+    background: transparent;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    box-shadow: none;
+    outline: none;
+}
+.search-clean-input:focus {
+    background: rgba(30,30,30,1);
+    color: #fff;
+    box-shadow: 0 0 0 2px #08d9d6;
+}
+.search-clean-btn {
+    border: none;
+    border-radius: 0 2rem 2rem 0;
+    background: linear-gradient(90deg, #08d9d6 0%, #ff2e63 100%);
+    color: #fff;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.search-clean-btn:hover {
+    background: linear-gradient(90deg, #ff2e63 0%, #08d9d6 100%);
+    color: #fff;
+    box-shadow: 0 0 12px #ff2e6344;
+}
+footer {
+    background: #000000 !important;
+    color: #000000 !important;
+}
+footer a, footer .text-muted {
+    color: #08d9d6 !important;
+}
+footer a:hover {
+    color: #ff2e63 !important;
+    text-decoration: underline;
+}
+</style>
     </body>
 </html>

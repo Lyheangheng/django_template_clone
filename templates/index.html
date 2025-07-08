@@ -1,59 +1,170 @@
 {% extends "base.html" %}
 
-{% block title %}หน้าแรก{% endblock title %}
+{% block title %}Home{% endblock title %}
 
 {% block content %}
-<div class="position-relative py-5">
-    <!-- ลูกโลกหมุนมุมซ้ายบน -->
-    <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
-        <div class="globe-spin">
-            <svg width="60" height="60" viewBox="0 0 60 60">
-                <circle cx="30" cy="30" r="28" fill="#232526" stroke="#08d9d6" stroke-width="3"/>
-                <ellipse cx="30" cy="30" rx="24" ry="10" fill="none" stroke="#ff2e63" stroke-width="2"/>
-                <ellipse cx="30" cy="30" rx="10" ry="24" fill="none" stroke="#ff2e63" stroke-width="2"/>
-                <ellipse cx="30" cy="30" rx="18" ry="18" fill="none" stroke="#08d9d6" stroke-width="1.5"/>
-            </svg>
-        </div>
+<div class="creative-bg">
+    <!-- Floating background icons -->
+    <div class="floating-icons">
+        <i class="fas fa-cogs fa-4x icon1"></i>
+        <i class="fas fa-laptop-code fa-3x icon2"></i>
+        <i class="fas fa-graduation-cap fa-5x icon3"></i>
+        <i class="fas fa-database fa-3x icon4"></i>
     </div>
-<div class="container-fluid py-5" style="background: rgba(57, 57, 57, 0.85); min-height: 100vh;">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="card shadow-lg border-0" style="background: rgba(30,30,30,0.85);">
-                <div class="card-header bg-dark text-white text-center border-0">
-                    <h2 class="mb-0" style="letter-spacing:0.1em; color:#ff2e63; text-shadow:0 0 10px #ff2e63,0 0 40px #232526;">แนะนำตัว</h2>
+    <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
+        <div class="profile-card shadow-lg border-0 p-4 text-center mb-4">
+            <div class="profile-img-wrapper mx-auto mb-3">
+                <img src="/static/assets/img/thorfinn_Img.jpg" alt="Profile Picture" class="profile-img">
+            </div>
+            <h2 class="mb-2" style="color:#A2D5C6; letter-spacing:0.08em;">Lyheang Heng</h2>
+            <div class="bio-text mb-3">
+                <p style="color:#fff;">Not even a top in the class, but sure I'll keep going, baring all the ignorements ,facing forward for good. </p>
+            </div>
+            <div class="social-links mb-2">
+                <a href="#" class="mx-2" title="Facebook"><i class="fab fa-facebook fa-lg" style="color:#08d9d6;"></i></a>
+                <a href="#" class="mx-2" title="GitHub"><i class="fab fa-github fa-lg" style="color:#ff2e63;"></i></a>
+                <a href="#" class="mx-2" title="Email"><i class="fas fa-envelope fa-lg" style="color:#fff;"></i></a>
+            </div>
+        </div>
+        <div class="row w-100 justify-content-center g-4">
+            <div class="col-12 col-sm-6 col-lg-3 d-flex">
+                <div class="info-card flex-fill text-center p-4">
+                    <div class="info-icon mb-2"><i class="fas fa-id-card fa-2x" style="color: #08d9d6;"></i></div>
+                    <h5 class="mb-1" style="color:#ff2e63;">Student ID</h5>
+                    <p class="mb-0" style="color:#fff;">6712732101</p>
                 </div>
-                <div class="card-body text-center">
-                    <p class="fs-4 mb-3" style="color:#08d9d6; text-shadow:0 0 5px #08d9d6;">ชื่อ: Pongphisut Buahom</p>
-                    <p class="fs-4 mb-3" style="color:#08d9d6; text-shadow:0 0 5px #08d9d6;">เลขรหัส: 6712732111</p>
-                    <p class="fs-4 mb-3" style="color:#08d9d6; text-shadow:0 0 5px #08d9d6">คณะ: ศิลปศาสตร์และวิทยาศาสตร์</p>
-                    <p class="fs-4 mb-3" style="color:#08d9d6; text-shadow:0 0 5px #08d9d6">สาขา: วิทยาการคอมพิวเตอร์</p>
-                    <p class="fs-4 mb-3" style="color:#08d9d6; text-shadow:0 0 5px #08d9d6">ชั้นปี: 2</p>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3 d-flex">
+                <div class="info-card flex-fill text-center p-4">
+                    <div class="info-icon mb-2"><i class="fas fa-university fa-2x" style="color:#08d9d6;"></i></div>
+                    <h5 class="mb-1" style="color:#ff2e63;">Faculty</h5>
+                    <p class="mb-0" style="color:#fff;">Art and Science</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3 d-flex">
+                <div class="info-card flex-fill text-center p-4">
+                    <div class="info-icon mb-2"><i class="fas fa-code fa-2x" style="color:#08d9d6;"></i></div>
+                    <h5 class="mb-1" style="color:#ff2e63;">Branch</h5>
+                    <p class="mb-0" style="color:#fff;">Computer Science</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3 d-flex">
+                <div class="info-card flex-fill text-center p-4">
+                    <div class="info-icon mb-2"><i class="fas fa-graduation-cap fa-2x" style="color:#08d9d6;"></i></div>
+                    <h5 class="mb-1" style="color:#ff2e63;">Year</h5>
+                    <p class="mb-0" style="color:#fff;">2nd</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <style>
-/* ลูกโลกหมุน */
-.globe-spin {
-    animation: globe-rotate 3s linear infinite;
-    filter: drop-shadow(0 0 8px #08d9d6);
+.creative-bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    position: relative;
+    overflow: hidden;
 }
-@keyframes globe-rotate {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
+.creative-bg::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, #08d9d6 0%, transparent 70%);
+    opacity: 0.25;
+    z-index: 1;
 }
-/* ฟอนต์และแสงแบบ dystopian */
-.card-header h3 {
-    animation: flicker1984 2s infinite alternate;
+.creative-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; right: -120px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, #ff2e63 0%, transparent 70%);
+    opacity: 0.18;
+    z-index: 1;
 }
-@keyframes flicker1984 {
-    0% { opacity: 1; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526; }
-    50% { opacity: 0.85; text-shadow: 0 0 20px #ff2e63, 0 0 60px #232526; }
-    100% { opacity: 1; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526; }
+.floating-icons {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 2;
 }
-.card {
-    box-shadow: 0 0 20px #232526, 0 0 40px #ff2e63 inset;
+.floating-icons .fa-cogs.icon1 {
+    position: absolute; left: 5%; top: 15%; opacity: 0.10; color: #fff;
+    animation: float1 8s ease-in-out infinite;
+}
+.floating-icons .fa-laptop-code.icon2 {
+    position: absolute; right: 10%; top: 30%; opacity: 0.13; color: #08d9d6;
+    animation: float2 10s ease-in-out infinite;
+}
+.floating-icons .fa-graduation-cap.icon3 {
+    position: absolute; left: 20%; bottom: 10%; opacity: 0.10; color: #ff2e63;
+    animation: float3 12s ease-in-out infinite;
+}
+.floating-icons .fa-database.icon4 {
+    position: absolute; right: 15%; bottom: 18%; opacity: 0.10; color: #fff;
+    animation: float4 9s ease-in-out infinite;
+}
+@keyframes float1 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-30px);} }
+@keyframes float2 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(40px);} }
+@keyframes float3 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-25px);} }
+@keyframes float4 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(35px);} }
+.profile-card {
+    background: rgba(30,30,30,0.92);
+    border-radius: 1.5rem;
+    max-width: 370px;
+    width: 100%;
+    z-index: 3;
+    box-shadow: 0 0 30px #232526, 0 0 60px #ff2e63 inset;
+}
+.profile-img-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #08d9d6;
+    box-shadow: 0 0 20px #08d9d6;
+    background: #232526;
+}
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.bio-text p {
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 0;
+    text-shadow: 0 0 8px #232526;
+}
+.social-links a {
+    transition: transform 0.2s;
+}
+.social-links a:hover {
+    transform: scale(1.2);
+    text-decoration: none;
+}
+.info-card {
+    background: rgba(40,40,40,0.95);
+    border-radius: 1rem;
+    box-shadow: 0 0 16px #232526, 0 0 24px #08d9d6 inset;
+    margin-bottom: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.info-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 0 32px #6e4b1f, 0 0 40px #232526 inset;
+    background: #6e4b1f !important; /* dull brown */
+}
+.info-icon {
+    margin-bottom: 0.5rem;
+}
+@media (max-width: 767px) {
+    .profile-card { max-width: 100%; }
+    .info-card { margin-bottom: 1.5rem; }
 }
 </style>
+<!-- Font Awesome CDN for icons (optional, or use your own icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock content %}

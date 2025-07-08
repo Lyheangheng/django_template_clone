@@ -1,40 +1,52 @@
 {% extends "base.html" %}
 
-{% block title %}เกี่ยวกับเรา{% endblock title %}
+{% block title %}About{% endblock title %}
 
 {% block content %}
-<div class="position-relative py-5">
-    <!-- ลูกโลกหมุนมุมซ้ายบน -->
-    <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
-        <div class="globe-spin">
-            <svg width="60" height="60" viewBox="0 0 60 60">
-                <circle cx="30" cy="30" r="28" fill="#232526" stroke="#08d9d6" stroke-width="3"/>
-                <ellipse cx="30" cy="30" rx="24" ry="10" fill="none" stroke="#ff2e63" stroke-width="2"/>
-                <ellipse cx="30" cy="30" rx="10" ry="24" fill="none" stroke="#ff2e63" stroke-width="2"/>
-                <ellipse cx="30" cy="30" rx="18" ry="18" fill="none" stroke="#08d9d6" stroke-width="1.5"/>
-            </svg>
-        </div>
+<div class="about-bg position-relative min-vh-100 d-flex align-items-center justify-content-center">
+    <!-- Floating background shapes -->
+    <div class="about-floating-icons">
+        <i class="fas fa-utensils fa-5x icon-eat"></i>
+        <i class="fas fa-music fa-4x icon-music"></i>
+        <i class="fas fa-dumbbell fa-4x icon-workout"></i>
+        <i class="fas fa-book-open fa-4x icon-learn"></i>
+        <i class="fas fa-gamepad fa-4x icon-game"></i>
+        <i class="fas fa-users fa-4x icon-social"></i>
     </div>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="card shadow-lg border-0" style="background: rgba(30,30,30,0.95); border: 2px solid #ff2e63;">
-                    <div class="card-header text-center border-0" style="background: #232526; color: #ff2e63; letter-spacing: 0.1em; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526;">
-                        <h3 class="mb-0" style="animation: flicker1984 2s infinite alternate;">เกี่ยวกับฉัน</h3>
-                    </div>
-                    <div class="card-body" style="color: #08d9d6; font-size: 1.2rem;">
-                        <p style="text-shadow: 0 0 5px #08d9d6;">
-                            ผมเกิดในอำเภอเมือง แต่แต่ก่อนไปอยู่บ้านที่นาๆบ่อยๆ แต่ถึงจะไปอยู่นาก็มีโน๊ตบุ๊คของพ่อให้เล่น เลยชอบคอม<br>
-                            เที่ยงเล่นคอม เย็นไปนา กลับมาเล่นคอม ดึกไปใส่ปลา<br>
-                            <br>
-                            <span style="text-shadow: 0 0 5px #08d9d6;">เลยมีหลายเส้นทางอาชีพที่อยากไป ทั้งใช้คอมในห้องก็ได้ ไปลุยสนามก็ดี</span>
-                        </p>
-                        <hr style="border-color:#ff2e63;">
-                        <ul class="list-unstyled">
-                            <li><strong>ชื่อ:</strong> Skibdi</li>
-                            <li><strong>บทบาท:</strong> นักเรียน/ผู้สังเกตการณ์ในยุค 1984</li>
-                            <li><strong>ความสนใจ:</strong> เทคโนโลยี, การเขียนโปรแกรม, การค้นหาความจริง</li>
-                        </ul>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0 d-flex justify-content-center">
+                <img src="/static/assets/img/Mountain_Pic.jpg" alt="Big Visual" class="about-big-img">
+            </div>
+            <div class="col-lg-7">
+                <div class="graph-card p-4">
+                    <h2 class="mb-4 text-center" style="color:#CFFFE2; letter-spacing:0.08em;">Hobbies</h2>
+                    <div class="bar-graph d-flex align-items-end justify-content-between position-relative">
+                        <div class="bar-item text-center">
+                            <div class="bar bar-eat" title="Eating"></div>
+                            <span class="bar-label">Music</span>
+                        </div>
+                        <div class="bar-item text-center">
+                            <div class="bar bar-music" title="Music"></div>
+                            <span class="bar-label">Workout</span>
+                        </div>
+                        <div class="bar-item text-center">
+                            <div class="bar bar-workout" title="Workout"></div>
+                            <span class="bar-label">Eating</span>
+                        </div>
+                        <div class="bar-item text-center">
+                            <div class="bar bar-learn" title="Learning"></div>
+                            <span class="bar-label">Learning</span>
+                        </div>
+                        <div class="bar-item text-center">
+                            <div class="bar bar-game" title="Gaming"></div>
+                            <span class="bar-label">Gaming</span>
+                        </div>
+                        <div class="bar-item text-center">
+                            <div class="bar bar-social" title="Socializing"></div>
+                            <span class="bar-label">Socializing</span>
+                        </div>
+                        <div class="bar-base-line"></div>
                     </div>
                 </div>
             </div>
@@ -42,27 +54,110 @@
     </div>
 </div>
 <style>
-/* ลูกโลกหมุน */
-.globe-spin {
-    animation: globe-rotate 3s linear infinite;
-    filter: drop-shadow(0 0 8px #08d9d6);
+.about-bg {
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    min-height: 100vh;
+    overflow: hidden;
 }
-@keyframes globe-rotate {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
+.about-floating-icons {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
-/* ฟอนต์และแสงแบบ dystopian */
-.card-header h3 {
-    animation: flicker1984 2s infinite alternate;
+.icon-eat { position: absolute; left: 5%; top: 10%; opacity: 0.08; color: #ff2e63; animation: floatEat 8s infinite alternate; }
+.icon-music { position: absolute; right: 8%; top: 18%; opacity: 0.07; color: #08d9d6; animation: floatMusic 10s infinite alternate; }
+.icon-workout { position: absolute; left: 12%; bottom: 12%; opacity: 0.07; color: #fff; animation: floatWorkout 12s infinite alternate; }
+.icon-learn { position: absolute; right: 12%; bottom: 10%; opacity: 0.07; color: #ff2e63; animation: floatLearn 9s infinite alternate; }
+.icon-game { position: absolute; left: 40%; top: 5%; opacity: 0.06; color: #08d9d6; animation: floatGame 11s infinite alternate; }
+.icon-social { position: absolute; right: 40%; bottom: 5%; opacity: 0.06; color: #fff; animation: floatSocial 13s infinite alternate; }
+@keyframes floatEat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-20px);} }
+@keyframes floatMusic { 0%,100%{transform:translateY(0);} 50%{transform:translateY(30px);} }
+@keyframes floatWorkout { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-15px);} }
+@keyframes floatLearn { 0%,100%{transform:translateY(0);} 50%{transform:translateY(25px);} }
+@keyframes floatGame { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-18px);} }
+@keyframes floatSocial { 0%,100%{transform:translateY(0);} 50%{transform:translateY(22px);} }
+.about-big-img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border: none;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 40px #23252644;
+    background: none;
+    z-index: 2;
 }
-@keyframes flicker1984 {
-    0% { opacity: 1; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526; }
-    50% { opacity: 0.85; text-shadow: 0 0 20px #ff2e63, 0 0 60px #232526; }
-    100% { opacity: 1; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526; }
+.graph-card {
+    background: rgba(30,30,30,0.97);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 30px #232526, 0 0 60pxrgb(0, 0, 0) inset;
+    z-index: 2;
 }
-.card {
-    box-shadow: 0 0 20px #232526, 0 0 40px #ff2e63 inset;
+.bar-graph {
+    height: 320px;
+    width: 100%;
+    gap: 18px;
+    margin-top: 2rem;
+    position: relative;
+}
+.bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 60px;
+    height: 100%;
+}
+.bar {
+    width: 38px;
+    border-radius: 18px 18px 0 0;
+    margin-bottom: 10px;
+    background: linear-gradient(180deg, #ff2e63 0%, #232526 100%);
+    box-shadow: 0 0 10px #ff2e6344;
+    transition: background 0.2s;
+    display: block;
+}
+.bar-eat { height: 300px; background: linear-gradient(180deg, #ff2e63 0%, #ffb366 100%); }
+.bar-music { height: 255px; background: linear-gradient(180deg, #08d9d6 0%, #232526 100%); }
+.bar-workout { height: 210px; background: linear-gradient(180deg, #fff 0%, #232526 100%); }
+.bar-learn { height: 175px; background: linear-gradient(180deg, #ff2e63 0%, #232526 100%); }
+.bar-game { height: 128px; background: linear-gradient(180deg, #08d9d6 0%, #232526 100%); }
+.bar-social { height: 70px; background: linear-gradient(180deg, #fff 0%, #232526 100%); }
+.bar-label {
+    color: #fff;
+    font-size: 1.05rem;
+    margin-top: 0.2rem;
+    letter-spacing: 0.03em;
+    text-shadow: 0 0 8px #232526;
+}
+.bar-base-line {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 4px;
+    background: #232526;
+    border-radius: 2px;
+    z-index: 3;
+    opacity: 0.7;
+}
+@media (max-width: 991px) {
+    .about-big-img { max-width: 320px; }
+    .bar-item { width: 40px; }
+    .bar { width: 26px; }
+    .bar-graph { height: 200px; }
+    .bar-eat { height: 180px; }
+    .bar-music { height: 150px; }
+    .bar-workout { height: 120px; }
+    .bar-learn { height: 100px; }
+    .bar-game { height: 70px; }
+    .bar-social { height: 35px; }
+}
+@media (max-width: 767px) {
+    .about-bg { padding: 2rem 0; }
+    .about-big-img { max-width: 220px; }
+    .graph-card { padding: 1rem; }
+    .bar-graph { gap: 8px; }
 }
 </style>
-
+<!-- Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock content %}

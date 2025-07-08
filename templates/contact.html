@@ -1,84 +1,109 @@
 {% extends "base.html" %}
 
-{% block title %}ติดต่อเรา{% endblock title %}
+{% block title %}Contact{% endblock title %}
 
 {% block content %}
-<div class="position-relative py-5">
-    <!-- ลูกโลกหมุนมุมซ้ายบน -->
-    <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
-        <div class="globe-spin">
-            <svg width="60" height="60" viewBox="0 0 60 60">
-                <circle cx="30" cy="30" r="28" fill="#232526" stroke="#08d9d6" stroke-width="3"/>
-                <ellipse cx="30" cy="30" rx="24" ry="10" fill="none" stroke="#ff2e63" stroke-width="2"/>
-                <ellipse cx="30" cy="30" rx="10" ry="24" fill="none" stroke="#ff2e63" stroke-width="2"/>
-                <ellipse cx="30" cy="30" rx="18" ry="18" fill="none" stroke="#08d9d6" stroke-width="1.5"/>
-            </svg>
-        </div>
+<div class="contact-bg position-relative min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="contact-floating-icons">
+        <i class="fas fa-envelope fa-5x icon-mail"></i>
+        <i class="fas fa-user-circle fa-4x icon-user"></i>
+        <i class="fas fa-comment-dots fa-4x icon-msg"></i>
+        <i class="fas fa-paper-plane fa-4x icon-plane"></i>
     </div>
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="card shadow-lg border-0" style="background: rgba(30,30,30,0.92); border: 2px solid #ff2e63;">
-                <div class="card-header text-center border-0" style="background: #232526; color: #ff2e63; letter-spacing: 0.1em; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526;">
-                    <h4 class="mb-0">ติดต่อเรา</h4>
-                </div>
-                <div class="card-body" style="color: #08d9d6;">
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="name" class="form-label" style="color: #ff2e63;">ชื่อ</label>
-                            <input type="text" class="form-control" id="name" name="name" required style="background: #232526; color: #fff; border: 1px solid #08d9d6;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-10">
+                <h2 class="mb-4 text-center" style="color:#CFFFE2; letter-spacing:0.08em; font-weight:700;">Contact Us</h2>
+                <form method="post" class="contact-form px-2 px-md-5 py-4">
+                    {% csrf_token %}
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label" style="color: #CFFFE2; font-weight:500;">Name</label>
+                            <input type="text" class="form-control contact-input" id="name" name="name" required placeholder="ชื่อของคุณ">
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label" style="color: #ff2e63;">อีเมล</label>
-                            <input type="email" class="form-control" id="email" name="email" required style="background: #232526; color: #fff; border: 1px solid #08d9d6;">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label" style="color: #CFFFE2; font-weight:500;">Email</label>
+                            <input type="email" class="form-control contact-input" id="email" name="email" required placeholder="you@email.com">
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label" style="color: #ff2e63;">ข้อความ</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required style="background: #232526; color: #fff; border: 1px solid #08d9d6;"></textarea>
+                        <div class="col-12">
+                            <label for="message" class="form-label" style="color: #CFFFE2; font-weight:500;">Info</label>
+                            <textarea class="form-control contact-input" id="message" name="message" rows="5" required placeholder="พิมพ์ข้อความของคุณ..."></textarea>
                         </div>
-                        <button type="submit" class="btn w-100" style="background: #ff2e63; color: #fff; font-weight: bold; letter-spacing: 0.1em; box-shadow: 0 0 10px #ff2e63, 0 0 20px #232526;">ส่งข้อความ</button>
-                    </form>
-                </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn contact-btn px-5 py-2">Confirm</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <style>
-/* Dystopian 1984 Future Animation */
-.card-header h4, .btn {
-    animation: flicker1984 2s infinite alternate;
+.contact-bg {
+    min-height: 100vh;
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    overflow: hidden;
+    position: relative;
 }
-@keyframes flicker1984 {
-    0% { opacity: 1; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526; }
-    50% { opacity: 0.85; text-shadow: 0 0 20px #ff2e63, 0 0 60px #232526; }
-    100% { opacity: 1; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526; }
+.contact-floating-icons {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
-.card {
-    box-shadow: 0 0 20px #232526, 0 0 40px #ff2e63 inset;
+.icon-mail { position: absolute; left: 6%; top: 12%; opacity: 0.09; color: #ff2e63; animation: floatMail 8s infinite alternate; }
+.icon-user { position: absolute; right: 10%; top: 20%; opacity: 0.08; color: #08d9d6; animation: floatUser 10s infinite alternate; }
+.icon-msg { position: absolute; left: 15%; bottom: 10%; opacity: 0.08; color: #fff; animation: floatMsg 12s infinite alternate; }
+.icon-plane { position: absolute; right: 18%; bottom: 8%; opacity: 0.08; color: #ff2e63; animation: floatPlane 9s infinite alternate; }
+@keyframes floatMail { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-20px);} }
+@keyframes floatUser { 0%,100%{transform:translateY(0);} 50%{transform:translateY(30px);} }
+@keyframes floatMsg { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-15px);} }
+@keyframes floatPlane { 0%,100%{transform:translateY(0);} 50%{transform:translateY(25px);} }
+.contact-form {
+    background: transparent;
+    border: none;
+    border-radius: 2.5rem; /* more rounded */
+    box-shadow: none;
+    z-index: 2;
+}
+.contact-input {
+    background: rgba(30,30,30,0.85);
+    color: #fff;
+    border: none;
+    border-bottom: 2px solid #08d9d6;
+    border-radius: 1.5rem; /* more rounded */
+    box-shadow: 0 2px 12px #23252622;
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.contact-input:focus {
+    border-bottom: 2.5px solid #ff2e63;
+    outline: none;
+    box-shadow: 0 4px 24px #ff2e6344;
+}
+.contact-btn {
+    background: linear-gradient(90deg, #ff2e63 0%, #08d9d6 100%);
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: 2.5rem; /* more rounded */
+    box-shadow: 0 0 16px #ff2e6344, 0 0 24px #23252622;
+    font-size: 1.1rem;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.contact-btn:hover {
+    background: linear-gradient(90deg, #08d9d6 0%, #ff2e63 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 0 32px #08d9d644, 0 0 40px #ff2e6322;
+}
+@media (max-width: 767px) {
+    .contact-form { padding: 1rem !important; }
+    .contact-bg { padding: 2rem 0; }
 }
 </style>
-<style>
-/* ลูกโลกหมุน */
-.globe-spin {
-    animation: globe-rotate 3s linear infinite;
-    filter: drop-shadow(0 0 8px #08d9d6);
-}
-@keyframes globe-rotate {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
-}
-/* ฟอนต์และแสงแบบ dystopian */
-.card-header h3 {
-    animation: flicker1984 2s infinite alternate;
-}
-@keyframes flicker1984 {
-    0% { opacity: 1; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526; }
-    50% { opacity: 0.85; text-shadow: 0 0 20px #ff2e63, 0 0 60px #232526; }
-    100% { opacity: 1; text-shadow: 0 0 10px #ff2e63, 0 0 40px #232526; }
-}
-.card {
-    box-shadow: 0 0 20px #232526, 0 0 40px #ff2e63 inset;
-}
-</style>
+<!-- Font Awesome CDN สำหรับไอคอน -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock content %}
